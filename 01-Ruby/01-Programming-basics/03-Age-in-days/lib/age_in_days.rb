@@ -8,6 +8,4 @@ def age_in_days(day, month, year)
   return (today - birthday).to_i
 end
 
-puts age_in_days(7, 9, 1989)
-
-
+# puts age_in_days(7, 9, 1989)
