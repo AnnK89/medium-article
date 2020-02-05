@@ -8,7 +8,7 @@ require_relative "wagon_sort"
 puts "Type a student name:"
 student_name = gets.chomp
 student_array = []
-while student_name != ""
+until student_name == ""
   student_array << student_name
   puts "Type another student name or press enter to finish:"
   student_name = gets.chomp
