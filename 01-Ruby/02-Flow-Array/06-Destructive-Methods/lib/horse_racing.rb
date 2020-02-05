@@ -8,4 +8,3 @@ def horse_racing_format!(race_array)
 end
 
 # puts horse_racing_format!(["hi", "there"])
-# Hello I am a new line of code
