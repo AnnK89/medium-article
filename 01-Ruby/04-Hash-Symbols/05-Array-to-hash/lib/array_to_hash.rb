@@ -3,7 +3,7 @@ def array_to_hash(array)
   hash = {}
   if block_given?
     array.each_with_index do |element, index|
-      hash[yield(index).to_s] = element
+      hash[yield(index)] = element
       p yield(index)
     end
   else
