@@ -22,4 +22,3 @@ end
 # If the number is divisible by 3, then replace it by 'Fizz'
 # If the number is divisible by 5, then replace it by 'Buzz'
 # If the number is divisible by both 3 and 5, then replace it by 'FizzBuzz'
-
