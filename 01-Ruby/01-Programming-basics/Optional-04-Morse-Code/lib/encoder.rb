@@ -39,7 +39,7 @@ MORSE_CODE = {
   "z" => "--.."
 }
 
-p MORSE_CODE.key("--..")
+
 
 
 # p encode("Hey Jude, don't make it bad")
