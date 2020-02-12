@@ -1,17 +1,11 @@
+require_relative 'transaction'
+require 'pry-byebug'
 # This is how you define your own custom exception classes
 class DepositError < StandardError
 end
 
 class BankAccount
   attr_reader :name, :balance
-
-  # Contract for the BankAccount class
-  # - you can access full owner's name and balance, but partial IBAN
-  # - you cannot access full IBAN
-  # - you can print partial account info
-  # - you can print transactions only with a password
-  # - you can withdraw or deposit money
-  # - You can see the balance of the account (through the balance variable)
 
   MIN_DEPOSIT = 100
 
@@ -50,21 +44,19 @@ class BankAccount
   end
 
   def iban
-    @iban.gsub(/-.*-/, '**************')
+    iban = @iban.split('-')
+    "#{iban.first}#{'*' * 14}#{iban.last}"
+    # @iban.gsub(/-.*-/, '**************')
   end
 
   def to_s
-    "Owner: #{@name} - IBAN: #{iban} - Balance: #{@balance} euros"
+    "Owner: #{name} - IBAN: #{iban} - Balance: #{balance} euros"
   end
 
   private
 
   def add_transaction(amount)
-    @transactions << amount
+    @transactions << Transaction.new(amount)
     @balance += amount
   end
 end
-
-bank = BankAccount.new("John Lennon", "FR14-2004-1010-0505-0001-3M02-606", 200, "yoko")
-
-p bank.iban
