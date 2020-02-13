@@ -1,5 +1,11 @@
 class Mother
-end
+  @subclass_array = []
 
-# Daughter and Son are classes inheriting from Mother. They are defined
-# in the specs, no need to create them.
+  def self.inherited(subclass)
+    @subclass_array << subclass
+  end
+
+  def self.phone_kids
+    @subclass_array.each { |subclass| subclass.phone }
+  end
+end
