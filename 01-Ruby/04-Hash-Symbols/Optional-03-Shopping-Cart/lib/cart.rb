@@ -3,14 +3,25 @@
 
 def add_to_cart(cart, product)
   # TODO: you get a cart and a product. Add the product to the cart!
+  cart << product
 end
 
 def cart_to_s(cart)
   # TODO: you get a cart, return a coma-separated String list of the contained products
+  cart.join(", ")
 end
 
 def cart_total_price(cart, store_items)
   # TODO: you get a cart and the store items with their prices. Return the total
   # price of the shopping cart.
   # /!\ Make sure it does not crash with carts having items not in store!
+  total = 0
+  cart.each do |cart_item|
+    if store_items.key?(cart_item) == true
+      total += store_items[cart_item]
+    else
+      total += 0
+    end
+  end
+  total
 end
