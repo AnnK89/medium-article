@@ -8,27 +8,21 @@ class Controller
     @view = View.new
   end
 
-  def list
-    display_list
+  def list(index = false)
+    recipes = @cookbook.all
+    @view.display(recipes, index)
   end
 
   def create
-    name = @view.ask_user_for_name
-    description = @view.ask_user_for_description
+    name = @view.ask_for_input("Please enter the recipe name")
+    description = @view.ask_for_input("Please describe the recipe")
     new_recipe = Recipe.new(name, description)
     @cookbook.add_recipe(new_recipe)
   end
 
   def destroy
-    display_list
-    index = @view.ask_user_for_index
-    @cookbook.remove_recipe(index)
-  end
-
-  private
-
-  def display_list
-    recipes = @cookbook.all
-    @view.display(recipes)
+    list(true)
+    index = @view.ask_for_input("Please select the index")
+    @cookbook.remove_recipe(index.to_i)
   end
 end

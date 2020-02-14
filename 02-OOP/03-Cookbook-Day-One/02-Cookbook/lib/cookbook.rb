@@ -16,9 +16,7 @@ class Cookbook
 
   def add_recipe(recipe)
     @recipes << recipe
-    CSV.open(@filepath, 'a') do |csv|
-      csv << [recipe.name, recipe.description]
-    end
+    store_to_csv
   end
 
   def remove_recipe(recipe_index)
@@ -36,8 +34,8 @@ class Cookbook
 
   def store_to_csv
     CSV.open(@filepath, 'w') do |csv|
-      @recipes.each do |instance|
-        csv << [instance.name, instance.description]
+      @recipes.each do |recipe|
+        csv << [recipe.name, recipe.description]
       end
     end
   end
