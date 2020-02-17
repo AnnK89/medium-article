@@ -27,7 +27,7 @@ class View
   end
 
   def show_search_results(results)
-    results.each_with_index { |result, index| puts "#{index + 1}. #{result.name}" }
+    results.each_with_index { |result, index| puts "#{index + 1}. #{result.text.strip}" }
   end
 
   def ask_for_import_index

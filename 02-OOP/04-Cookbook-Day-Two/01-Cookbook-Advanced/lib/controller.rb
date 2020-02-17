@@ -1,13 +1,13 @@
-require_relative 'cookbook'
 require_relative 'view'
+require_relative 'cookbook'
+require_relative 'scraper'
 require 'pry-byebug'
-require 'nokogiri'
-require 'open-uri'
 
 class Controller
   def initialize(cookbook)
     @cookbook = cookbook
     @view = View.new
+    @scraper = Scraper.new
   end
 
   def list(index = false)
@@ -21,22 +21,23 @@ class Controller
     prep_time = @view.ask_for_input("Please enter the prep time")
     new_recipe = Recipe.new(name: name, description: description, prep_time: prep_time)
     @cookbook.add_recipe(new_recipe)
+    list
   end
 
   def destroy
     list(true)
     index = @view.ask_for_input("Please select the index")
-    @cookbook.remove_recipe(index.to_i)
+    @cookbook.remove_recipe(index.to_i - 1)
   end
 
-  def search
-    keyword = @view.ask_for_input("What ingredient would you like a recipe for?")
-    @view.print_message(keyword)
-    results = @cookbook.filter(keyword)
-    @view.show_search_results(results)
-    index = @view.ask_for_import_index
-    recipe = @view.import_title(results, index)
-    @cookbook.add_recipe(recipe)
+  def import
+    search_for_recipes
+    index = @view.ask_for_input("Please select the index")
+    @scraper.select_recipe(index.to_i - 1)
+    attrs_hash = @scraper.recipe_attributes
+    new_recipe = Recipe.new(attrs_hash)
+    @cookbook.add_recipe(new_recipe)
+    list
   end
 
   def mark
@@ -44,5 +45,13 @@ class Controller
     index = @view.ask_for_input("Please select the index")
     @cookbook.mark_as_done(index.to_i - 1)
     list
+  end
+
+  private
+
+  def search_for_recipes
+    keyword = @view.ask_for_input("What ingredient would you like a recipe for?")
+    @scraper.fetch_recipes(keyword)
+    @view.show_search_results(@scraper.fetch_titles)
   end
 end

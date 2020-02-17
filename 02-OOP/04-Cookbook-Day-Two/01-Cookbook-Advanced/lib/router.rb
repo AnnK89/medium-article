@@ -23,7 +23,7 @@ class Router
     when 1 then @controller.list
     when 2 then @controller.create
     when 3 then @controller.destroy
-    when 4 then @controller.search
+    when 4 then @controller.import
     when 5 then @controller.mark
     when 6 then stop
     else
@@ -43,5 +43,6 @@ class Router
     puts "4. Import recipes from the Internet"
     puts "5. Mark as done"
     puts "6. Exit"
+    print "> "
   end
 end

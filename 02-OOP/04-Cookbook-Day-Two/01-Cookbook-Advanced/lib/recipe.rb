@@ -6,6 +6,7 @@ class Recipe
     @description = attributes[:description]
     @prep_time = attributes[:prep_time]
     @done = attributes[:done] == "true"
+    # same as attributes[:done] == "true" ? true : false
   end
 
   def done?
