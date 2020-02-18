@@ -26,8 +26,6 @@ class OrderRepository
     save_csv
   end
 
-  private
-
   def load_csv
     csv_options = { headers: :first_row, header_converters: :symbol }
 
