@@ -1,6 +1,7 @@
 class MealView
   def ask_for_input(message)
     puts message
+    print "> "
     gets.chomp
   end
 
