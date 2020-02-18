@@ -22,7 +22,6 @@ class OrdersController
 
     new_order = Order.new(meal: meal, employee: employee, customer: customer)
     @order_repository.add(new_order)
-    @order_repository.save_csv
   end
 
   def list_my_orders(employee)

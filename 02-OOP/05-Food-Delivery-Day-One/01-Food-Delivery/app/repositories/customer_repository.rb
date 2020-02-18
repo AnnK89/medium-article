@@ -16,8 +16,8 @@ class CustomerRepository
   def add(customer)
     customer.id = @next_id
     @customers << customer
-    @next_id += 1
     save_csv
+    @next_id += 1
   end
 
   def find(id)

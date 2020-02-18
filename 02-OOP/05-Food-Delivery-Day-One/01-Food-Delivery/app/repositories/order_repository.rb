@@ -22,8 +22,8 @@ class OrderRepository
   def add(order)
     order.id = @next_id
     @orders << order
-    @next_id += 1
     save_csv
+    @next_id += 1
   end
 
   def load_csv
