@@ -17,9 +17,16 @@ class PostController
 
   def create
     path = @view.ask_user_for_input("Path?")
-    title = scraper(path, '.title .medium')
-    content = scraper(path, '#article-body p')
-    author = scraper(path, '.author')
+    file = open("https://dev.to/#{path}").read
+    doc = Nokogiri::HTML(file)
+    title = doc.search("h1").first.text.strip
+    paragraphs = doc.search("#article-body p")
+    content = paragraphs.map(&:text).join("\n\n")
+    author = doc.search(".author").first&.text.strip
+    # path = @view.ask_user_for_input("Path?")
+    # title = scraper(path, '.title .medium')
+    # content = scraper_content(path, '#article-body p')
+    # author = scraper(path, '.author')
     new_post = Post.new(path: path, name: title, content: content, author: author)
     @repository.add(new_post)
     list
