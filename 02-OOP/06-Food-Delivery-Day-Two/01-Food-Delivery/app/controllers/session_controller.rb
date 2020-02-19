@@ -25,6 +25,7 @@ class SessionController
 
   def validate_password(employee)
     password = @view.ask_for("Password?")
+    puts ""
     if employee.password == password
       puts "Welcome #{employee.username.capitalize}"
     else

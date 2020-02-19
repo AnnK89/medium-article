@@ -1,5 +1,6 @@
 require 'csv'
 require_relative '../models/customer.rb'
+require "pry-byebug"
 
 class CustomerRepository
   def initialize(csv)
@@ -22,6 +23,11 @@ class CustomerRepository
 
   def find(id)
     @customers.find { |customer| customer.id == id }
+  end
+
+  def delete(customer)
+    @customers.delete(customer)
+    save_csv
   end
 
   private

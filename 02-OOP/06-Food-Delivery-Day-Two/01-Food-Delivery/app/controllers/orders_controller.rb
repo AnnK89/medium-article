@@ -40,4 +40,8 @@ class OrdersController
       end
     end
   end
+
+  def delete
+
+  end
 end

@@ -17,4 +17,10 @@ class CustomersController
     customer = Customer.new(name: name, address: address)
     @repository.add(customer)
   end
+
+  def delete
+    id = @view.ask_for_input("Customer id?").to_i
+    customer = @repository.find(id)
+    @repository.delete(customer)
+  end
 end

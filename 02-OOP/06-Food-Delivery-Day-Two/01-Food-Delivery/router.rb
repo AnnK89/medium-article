@@ -44,9 +44,10 @@ class Router
     puts "2. Add a new meal"
     puts "3. List all customers"
     puts "4. Add a new customer"
-    puts "5. List all undelivered orders"
-    puts "6. Add a new order"
-    puts "7. Exit"
+    puts "5. Delete a customer"
+    puts "6. List all undelivered orders"
+    puts "7. Add a new order"
+    puts "8. Exit"
     print "> "
   end
 
@@ -65,9 +66,10 @@ class Router
     when 2 then @meals_controller.add
     when 3 then @customers_controller.list
     when 4 then @customers_controller.add
-    when 5 then @orders_controller.list_undelivered_orders
-    when 6 then @orders_controller.add
-    when 7 then @running = false
+    when 5 then @customers_controller.delete
+    when 6 then @orders_controller.list_undelivered_orders
+    when 7 then @orders_controller.add
+    when 8 then @running = false
     else
       puts "Please select an index"
     end
