@@ -2,6 +2,8 @@
 
 <% @albums.each do |album| %>
   <li>
-    <%= album %>
+    <a href="/albums/<%= album[0]%>"><%= album[1] %></a>
   </li>
 <% end %>
+
+<footer><a href="/">Back to Artists page</a></footer>
