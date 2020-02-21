@@ -12,8 +12,8 @@ class Post
   end
 
   def save
-    result = DB.execute("SELECT * FROM posts WHERE id = '#{@id}'")
-    if result.empty?
+    # result = DB.execute("SELECT * FROM posts WHERE id = '#{@id}'")
+    if @id.nil?
       query = "INSERT INTO posts (url, votes, title) VALUES ('#{@url}', '#{@votes}', '#{@title}')"
       DB.execute(query)
       @id = DB.last_insert_row_id
@@ -23,6 +23,3 @@ class Post
     end
   end
 end
-
-
-# "<h3 class='value'> Some content </h3>""
