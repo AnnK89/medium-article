@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class Post
   attr_reader :id
   attr_accessor :title, :url, :votes
@@ -9,5 +11,18 @@ class Post
     @title = attributes[:title]
   end
 
-  # TODO
+  def save
+    result = DB.execute("SELECT * FROM posts WHERE id = '#{@id}'")
+    if result.empty?
+      query = "INSERT INTO posts (url, votes, title) VALUES ('#{@url}', '#{@votes}', '#{@title}')"
+      DB.execute(query)
+      @id = DB.last_insert_row_id
+    else
+      query = "UPDATE posts SET url = '#{@url}', votes = '#{@votes}', title = '#{@title}' WHERE id = '#{@id}'"
+      DB.execute(query)
+    end
+  end
 end
+
+
+# "<h3 class='value'> Some content </h3>""
