@@ -6,28 +6,37 @@ class PostsController
   end
 
   def index
-    # DO NOT WRITE SQL QUERIES
-    # TODO: gather all posts from the database
-    # TODO: give them to the view to be printed
+    posts = Post.all
+    @view.display(posts)
   end
 
   def create
-    # DO NOT WRITE SQL QUERIES
-    # TODO: create a post
+    title = @view.ask_for_input("Title?")
+    url = @view.ask_for_input("URL?")
+    post = Post.new(title: title, url: url)
+    post.save
   end
 
   def update
-    # DO NOT WRITE SQL QUERIES
-    # TODO: update a post
+    post = Post.find(@view.ask_for_id)
+    change_field = @view.ask_for_input("What would you like to update?")
+    symbolized = (change_field + "=").downcase.to_sym # :title=
+    new_info = @view.ask_for_input("Please enter the new information")
+    post.send(symbolized, new_info)
+
+    post.save
   end
 
   def destroy
-    # DO NOT WRITE SQL QUERIES
-    # TODO: destroy a post
+    id = @view.ask_for_id
+    post = Post.find(id)
+    post.destroy
   end
 
   def upvote
-    # DO NOT WRITE SQL QUERIES
-    # TODO: increment the `votes` column for a post
+    id = @view.ask_for_id
+    post = Post.find(id)
+    post.votes += 1
+    post.save
   end
 end
