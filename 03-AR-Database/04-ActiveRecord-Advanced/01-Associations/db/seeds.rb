@@ -1,5 +1,5 @@
 # TODO: Write a seed
-require 'Faker'
+require 'faker'
 
 5.times do
   user = User.new(
