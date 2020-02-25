@@ -12,15 +12,24 @@ require_relative "config/application"
 set :views, (proc { File.join(root, "app/views") })
 set :bind, '0.0.0.0'
 
-
-
 get '/' do
-  # TODO
-  # 1. fetch posts from database.
-  # 2. Store these posts in an instance variable
-  # 3. Use it in the `app/views/posts.erb` view
-
-  erb :posts # Do not remove this line
+  @posts = Post.all.order(votes: :desc)
+  erb :posts
 end
 
-# TODO: add more routes to your app!
+get '/upvote/:id' do
+  post = Post.find(params[:id])
+  post.votes += 1
+  post.save
+  redirect '/'
+end
+
+get '/new_post' do
+  erb :new_post
+end
+
+post '/new_post' do
+  new_post = Post.new(name: params[:name], url: params[:url])
+  new_post.save
+  redirect '/'
+end
