@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :email, format: { with: /\A.*@.*\.com\z/ }
   before_validation :strip_whitespace
-  after_validation :send_email
+  after_create :send_email
 
   def strip_whitespace
     self.email = email.strip unless email.nil?
