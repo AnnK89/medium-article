@@ -11,7 +11,7 @@ class Router
     while @running
       display_tasks
       action = gets.chomp.to_i
-      print `clear`
+      print 'clear'
       route_action(action)
     end
   end
