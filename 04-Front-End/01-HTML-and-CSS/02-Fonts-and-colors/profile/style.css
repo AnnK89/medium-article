@@ -1,0 +1,27 @@
+h1 {
+  color: #575F7D;
+  font-family: 'Lora', serif;
+}
+
+h2 {
+  color: #575F7D;
+  font-family: 'Lora', serif;
+}
+
+h3 {
+  color: #7ECE90;
+  font-size: 20px;
+}
+
+a {
+  color: #6B72E1;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a.link:hover {
+  color: black;
+}
+
+
