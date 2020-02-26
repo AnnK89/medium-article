@@ -5,13 +5,15 @@ require_relative 'scraper'
 require 'pry-byebug'
 
 class PostController
-  def initialize(repository)
-    @repository = repository
+  def initialize(post_repository, author_repository)
+    @post_repository = post_repository
+    @author_repository = author_repository
     @view = PostView.new
   end
 
   def list
-    posts = @repository.all
+    posts = @post_repository.all
+
     @view.display(posts)
   end
 

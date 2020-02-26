@@ -1,6 +1,7 @@
 class Router
-  def initialize(controller)
-    @controller = controller
+  def initialize(post_controller, author_controller)
+    @post_controller = post_controller
+    @author_controller = author_controller
     @running = true
   end
 
@@ -21,13 +22,16 @@ class Router
 
   def route_action(action)
     case action
-    when 1 then @controller.list
-    when 2 then @controller.create
-    when 3 then @controller.display_content
-    when 4 then @controller.mark_as_read
-    when 5 then stop
+    when 1 then @post_controller.list
+    when 2 then @post_controller.create
+    when 3 then @post_controller.display_content
+    when 4 then @post_controller.mark_as_read
+    when 5 then @author_controller.list
+    when 6 then @author_controller.display_post
+    when 7 then @author_controller.display_info
+    when 8 then stop
     else
-      puts "Please press 1, 2, 3, 4 or 5"
+      puts "Please try again"
     end
   end
 
@@ -44,7 +48,10 @@ class Router
     puts "2. Save post for later"
     puts "3. Read post"
     puts "4. Mark post as read"
-    puts "5. Exit"
+    puts "5. List authors"
+    puts "6. List author's posts"
+    puts "7. See author info"
+    puts "8. Exit"
     print "> "
   end
 end

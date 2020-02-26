@@ -1,4 +1,5 @@
-daolf/the-25-most-recommended-programming-books-of-all-time-5fel,The 25 most recommended programming books of all-time.,"This article is a follow up of the one I did about the the most recommended startup books of all-time.
+id,path,name,content,author,read?
+1,daolf/the-25-most-recommended-programming-books-of-all-time-5fel,The 25 most recommended programming books of all-time.,"This article is a follow up of the one I did about the the most recommended startup books of all-time.
 
 If you've read this one recently. I guess you can jump straight to the results.
 
@@ -16,7 +17,7 @@ I've simply asked Google for a few queries like ""Best Programming Books"" and i
 
 I've deduplicated the links and ended up with nearly 150 links. Using the title of the pages I was also able to quickly discards:
 
-I ended up with almost 200 HTML files. I went on opening all the files on my browser, open my chrome inspector, found and wrote the CSS selector matching book titles in the article. This took me around 1hours, almost 30 seconds per page. 
+I ended up with almost 200 HTML files. I went on opening all the files on my browser, open my chrome inspector, found and wrote the CSS selector matching book titles in the article. This took me around 1hours, almost 30 seconds per page.
 
 This also allowed me to discard even more nonrelevant pages, and I discarded a lot. In the end, I compiled around 70 lists into this one.
 
@@ -28,11 +29,11 @@ Using Python with Beautiful soup, I've extracted every text inside DOM elements 
 
 
 
-To find the most quoted startup books I needed to normalize my results. 
+To find the most quoted startup books I needed to normalize my results.
 
 I had to play with  all the different variation like ""{title} by {author}"" or ""{title} - {author}"".
 
-Or ""{title}:{subtitle}"" and ""{title}"", or even all the one containing edition number. 
+Or ""{title}:{subtitle}"" and ""{title}"", or even all the one containing edition number.
 
 I ended up doing it using this simple custom Python function:
 
@@ -56,11 +57,11 @@ support continuous delivery, from infrastructure, data and configuration managem
 ""The algorithms in this book represent a body of knowledge developed over the last 50 years that has become indispensable, not just for professional programmers and computer science students but for any student with interests in science, mathematics, and engineering, not to mention students who use computation in the liberal arts.""Amazon.com
 
 
-""I am a self-taught programmer. After a year of self-study, I learned to program well enough to land a job as a software engineer II at eBay. 
+""I am a self-taught programmer. After a year of self-study, I learned to program well enough to land a job as a software engineer II at eBay.
 
-Once I got there, I realized I was severely under-prepared. I was overwhelmed by the amount of things I needed to know but hadn't learned yet. My journey learning to program, and my experience at my first job as a software engineer were the inspiration for this book. 
+Once I got there, I realized I was severely under-prepared. I was overwhelmed by the amount of things I needed to know but hadn't learned yet. My journey learning to program, and my experience at my first job as a software engineer were the inspiration for this book.
 
-This book is not just about learning to program; although you will learn to code. If you want to program professionally, it is not enough to learn to code; that is why, in addition to helping you learn to program, I also cover the rest of the things you need to know to program professionally that classes and books don't teach you. 
+This book is not just about learning to program; although you will learn to code. If you want to program professionally, it is not enough to learn to code; that is why, in addition to helping you learn to program, I also cover the rest of the things you need to know to program professionally that classes and books don't teach you.
 
 ""The Self-taught Programmer"" is a roadmap, a guide to take you from writing your first Python program, to passing your first technical interview. The path is there. Will you take it?""Amazon.com
 
@@ -158,7 +159,7 @@ What’s so special about this book?
 We think your time is too valuable to spend struggling with new concepts. Using the latest research in cognitive science and learning theory to craft a multi-sensory learning experience, Head First Design Patterns uses a visually rich format designed for the way your brain works, not a text-heavy approach that puts you to sleep.""Amazon.com
 
 
-""As the application of object technology--particularly the Java programming language--has become commonplace, a new problem has emerged to confront the software development community. Significant numbers of poorly designed programs have been created by less-experienced developers, resulting in applications that are inefficient and hard to maintain and extend. Increasingly, software system professionals are discovering just how difficult it is to work with these inherited, non-optimal applications. 
+""As the application of object technology--particularly the Java programming language--has become commonplace, a new problem has emerged to confront the software development community. Significant numbers of poorly designed programs have been created by less-experienced developers, resulting in applications that are inefficient and hard to maintain and extend. Increasingly, software system professionals are discovering just how difficult it is to work with these inherited, non-optimal applications.
 
 For several years, expert-level object programmers have employed a growing collection of techniques to improve the structural integrity and performance of such existing software programs. Referred to as refactoring, these practices have remained in the domain of experts because no attempt has been made to transcribe the lore into a form that all developers could use. . .until now. In Refactoring: Improving the Design of Existing Software, renowned object technology mentor Martin Fowler breaks new ground, demystifying these master practices and demonstrating how software practitioners can realize the significant benefits of this new process. With proper training a skilled system designer"" Amazon.com
 
@@ -178,11 +179,11 @@ Now, twenty years later, this new edition re-examines what it means to be a mode
 
 Although the order might suprise some, by definition, most of you must have heard of these books already.
 
-A few additional things I learned making this list: 
+A few additional things I learned making this list:
 
-I hope you enjoyed this article. 
+I hope you enjoyed this article.
 
-I must admit, this one took a while to write. If you liked this article and feel like Twitter would like it please do not hesitate to love and retweet, it really does help :). 
+I must admit, this one took a while to write. If you liked this article and feel like Twitter would like it please do not hesitate to love and retweet, it really does help :).
 
 (do NOT create an account just for this though)
 

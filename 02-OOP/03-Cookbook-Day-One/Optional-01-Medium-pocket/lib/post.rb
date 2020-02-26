@@ -1,13 +1,15 @@
 require 'pry-byebug'
 
 class Post
-  attr_reader :path, :name, :content, :author
+  attr_accessor :id, :author
+  attr_reader :path, :name, :content
 
   def initialize(attributes = {})
+    @id = attributes[:id]
     @path = attributes[:path]
     @name = attributes[:name]
     @content = attributes[:content]
-    @author = attributes[:author]
+    @author = attributes[:author] # author instances
     @read = attributes[:read] == "true"
   end
 
