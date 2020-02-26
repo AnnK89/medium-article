@@ -26,8 +26,7 @@ class Post
   end
 
   def save
-    result = DB.execute("SELECT * FROM posts WHERE id = '#{@id}'")
-    if result.empty?
+    if @id.nil?
       query = "INSERT INTO posts (url, votes, title) VALUES ('#{@url}', '#{@votes}', '#{@title}')"
       DB.execute(query)
       @id = DB.last_insert_row_id
