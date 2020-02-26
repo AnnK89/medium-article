@@ -54,6 +54,13 @@ h2 {
   font-style: italic;
 }
 
+.link-medium:hover {
+  background-image: linear-gradient(to bottom,
+  rgba(125, 255, 179, 1), rgba(125, 255, 179, 1));
+}
+
+/*adding a comment just to make sure*/
+
 a { text-decoration: none; }
 
 
