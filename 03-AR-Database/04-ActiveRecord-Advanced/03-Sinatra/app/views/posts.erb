@@ -1,15 +1,23 @@
 <h1>Hacker News</h1>
 
+
+<a href="/" class="btn">Add a new post</a>
+<form method="POST" action="/">
+  <p>Name <br><input type="text" name="name"></p><br>
+  <p>URL <br><input type="text" name="url"></p><br>
+  <input type ="submit">
+</form><br>
+
+
 <h3>Posts</h3>
-
-<a href="/new_post" class="btn">Add a new post</a>
-
 <ul>
   <% @posts.each do |post| %>
   <li>
     <a href="<%= post.url %>"><%= post.name %></a>
     <%= "votes: #{post.votes}" %>
-    <a href="/upvote/<%= post.id %>" class="btn">Vote me!</a>
+    <a href="/<%= post.id %>/upvote" class="btn">Vote</a>
+    <a href="/<%= post.id %>/delete" class="btn">Delete</a>
+    <a href="/<%= post.id %>/edit" class="btn">Edit</a>
   </li>
   <% end %>
 </ul>

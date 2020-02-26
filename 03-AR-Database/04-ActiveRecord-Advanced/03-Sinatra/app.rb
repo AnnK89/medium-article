@@ -17,19 +17,33 @@ get '/' do
   erb :posts
 end
 
-get '/upvote/:id' do
+post '/' do
+  new_post = Post.new(params)
+  new_post.save
+  redirect '/'
+end
+
+get '/:id/upvote' do
   post = Post.find(params[:id])
   post.votes += 1
   post.save
   redirect '/'
 end
 
-get '/new_post' do
-  erb :new_post
+get '/:id/delete' do
+  post = Post.find(params[:id])
+  post.destroy
+  redirect '/'
 end
 
-post '/new_post' do
-  new_post = Post.new(name: params[:name], url: params[:url])
-  new_post.save
+get '/:id/edit' do
+  erb :edit_post
+end
+
+post '/:id/edit' do
+  @post = Post.find(params[:id])
+  @post.name = params[:name]
+  @post.url = params[:url]
+  @post.save
   redirect '/'
 end
