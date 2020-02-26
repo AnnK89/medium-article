@@ -30,12 +30,6 @@ class View
     results.each_with_index { |result, index| puts "#{index + 1}. #{result.text.strip}" }
   end
 
-  def ask_for_import_index
-    puts "Which recipe would you like to import? (enter index)"
-    print "> "
-    gets.chomp.to_i - 1
-  end
-
   def import_title(results, index)
     puts "Importing \"#{results[index].name}\"..."
     return results[index]
@@ -46,7 +40,6 @@ class View
   def name_only(recipes)
     recipes.each_with_index do |recipe, index|
       status = recipe.done? ? "[X]" : "[ ]"
-#      binding.pry
       puts "#{index + 1}. #{status} #{recipe.name} (#{recipe.prep_time})"
     end
   end
