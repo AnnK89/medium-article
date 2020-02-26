@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/reloader" if development?
 require "sqlite3"
+require 'pry-byebug'
 
 DB = SQLite3::Database.new(File.join(File.dirname(__FILE__), 'db/jukebox.sqlite'))
 
