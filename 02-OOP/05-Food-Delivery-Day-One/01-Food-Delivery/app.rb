@@ -8,11 +8,11 @@ require_relative 'app/controllers/customers_controller.rb'
 require_relative 'router'
 
 meal_repo = MealRepository.new(File.join(__dir__, 'meals.csv'))
-meal_controller = MealsController.new(meal_repo)
+meals_controller = MealsController.new(meal_repo)
 
 customer_repo = CustomerRepository.new(File.join(__dir__, 'customers.csv'))
-customer_controller = CustomersController.new(customer_repo)
+customers_controller = CustomersController.new(customer_repo)
 
-router = Router.new(meal_controller, customer_controller)
+router = Router.new(meals_controller, customers_controller)
 
 router.run

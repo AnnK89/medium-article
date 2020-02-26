@@ -16,8 +16,8 @@ class MealRepository
   def add(meal)
     meal.id = @next_id
     @meals << meal
-    @next_id += 1
     save_csv
+    @next_id += 1
   end
 
   def find(id)
